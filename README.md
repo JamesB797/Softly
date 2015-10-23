@@ -1,5 +1,5 @@
 # Softly
-An MS Windows configuration framework
+A Windows 10 configuration
 
 To install, paste this into the "address bar" of Windows Explorer and hit enter:
 
