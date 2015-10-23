@@ -6,8 +6,4 @@ $relativelink = echo $listing.Links | Where {$_.href -like "*AMD64*" -and $_.hre
 
 $absolutelink = $listinglink + $relativelink.href
 
-
-$sysconfigdir = "~/Softly/"
-New-Item $sysconfigdir -ItemType directory
-
-Invoke-WebRequest $absolutelink -OutFile ($sysconfigdir + $relativelink.href)
+Invoke-WebRequest $absolutelink -OutFile ("~/" + $relativelink.href)
