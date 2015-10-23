@@ -1,7 +1,7 @@
 # Softly
 An MS Windows configuration framework
 
-To install, run:
+To install, paste this into the "address bar" of Windows Explorer and hit enter:
 
     powershell -NoProfile -ExecutionPolicy Bypass -Command "Invoke-WebRequest https://raw.githubusercontent.com/JamesB797/Softly/master/install-softly.ps1 | Start-Process powershell -ArgumentList '-NoProfile -ExecutionPolicy Bypass' -verb RunAs"
 
