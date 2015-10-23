@@ -1,3 +1,9 @@
+$repo = "https://raw.githubusercontent.com/JamesB797/Softly/master/"
+
+if (-not (Get-Command "git" -ErrorAction SilentlyContinue)) {
+    Invoke-Expression (Invoke-WebRequest $repo + "install-git.ps1")
+} 
+
 $listinglink = "https://repo.saltstack.com/windows/"
 
 $listing = Invoke-WebRequest $listinglink
