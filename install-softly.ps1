@@ -1,15 +1,15 @@
-$repo = "https://raw.githubusercontent.com/JamesB797/Softly/master/"
+$reporaw = "https://raw.githubusercontent.com/JamesB797/Softly/master/"
+$repo = "https://github.com/JamesB797/Softly.git"
 
-if (-not (Get-Command "git" -ErrorAction SilentlyContinue)) {
-    Invoke-Expression (Invoke-WebRequest $repo + "install-git.ps1")
-} 
+function install-if-missing {
 
-$listinglink = "https://repo.saltstack.com/windows/"
+    ForEach ($command in $args) {
 
-$listing = Invoke-WebRequest $listinglink
+        if (-not (Get-Command $command -ErrorAction SilentlyContinue)) {
 
-$relativelink = echo $listing.Links | Where {$_.href -like "*AMD64*" -and $_.href -notlike "*md5"} | Select -Last 1
+            Invoke-Expression (Invoke-WebRequest $reporaw + "install-$command.ps1")
+        } 
+    }
+}
 
-$absolutelink = $listinglink + $relativelink.href
-
-Invoke-WebRequest $absolutelink -OutFile ("~/" + $relativelink.href)
+install-if-missing("git", "salt")
